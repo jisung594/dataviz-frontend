@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form from './Components/Form';
-import Graph from './Components/Graph';
+import Form from './Form';
+import Graph from './Graph';
 
 class PlotContainer extends Component {
   render(){
@@ -12,3 +12,5 @@ class PlotContainer extends Component {
     );
   }
 }
+
+export default PlotContainer;
