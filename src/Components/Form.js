@@ -4,23 +4,47 @@ const Form = (props) => {
 
   const [formInput, setInput] = useState({});
 
+  const uploadToS3 = (obj,e) => {
+    e.preventDefault()
 
-  let uploadToS3 = async () => {
-    const response = await fetch('/upload')
-    const body = await response.json()
+    let formData = new FormData();
+    formData.append("bucketDir", formInput["bucketDir"])
+    formData.append("inputFile", formInput["inputFile"])
+    formData.append("format", formInput["format"])
 
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
-    return body
+    fetch('http://127.0.0.1:5000/upload', {
+      method: "POST",
+      // headers: { 'Content-Type': 'multipart/form-data' },
+      // body: obj
+      body: formData
+    })
+      .then(res => {
+        console.log(res.status)
+      })
+      .catch(console.error)
   }
 
 
-  console.log(formInput);
+  // package.json =>
+  // (scripts) "start-api": "venv/bin/python -m flask run --no-debugger",
+
+  // "proxy": "http://127.0.0.1:5000/",
+  // "secure": false
+
 
   return (
     <div>
-      <form id="upload-form" action="/" method="POST" encType="multipart/form-data">
+      <form
+        id="upload-form"
+        encType="multipart/form-data"
+        onSubmit={(event) => uploadToS3(formInput,event)}
+      >
+      {/* onSubmit={(event) => uploadToS3(formInput,event)} */}
+      {/* action="http://localhost:5000/upload" */}
+      {/* action="http://127.0.0.1:5000/upload" */}
+      {/* encType="multipart/form-data" */}
+      {/* encType="application/x-www-form-urlencoded" */}
+
         <input
           type="text"
           name="bucketDir"
@@ -35,21 +59,21 @@ const Form = (props) => {
           type="file"
           name="inputFile"
           id="input-btn"
-          onChange={e => setInput({...formInput, [e.target.name]: e.target.value})}
+          onChange={e => setInput({...formInput, [e.target.name]: e.target.files[0]})}
+          required
         />
 
         <br/>
 
         <select
           name="format"
-          form="dataFormat"
+          form="upload-form"
           onChange={e => setInput({...formInput, [e.target.name]: e.target.value})}
+          defaultValue={'default'}
           required
         >
-          <option value="" disabled selected>Format</option>
+          <option value="default" disabled>Format</option>
           <option value="csv">CSV</option>
-          <option value="json">JSON</option>
-          <option value="xlsx">XLSX</option>
         </select>
 
         <br/>

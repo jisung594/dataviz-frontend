@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from './Components/Navbar'
 import MainContainer from './Components/MainContainer'
-import './Styling/App.css';
+import './Styling/App.scss';
 
-class App extends Component {
+function App() {
 
-  state = {
-
-  }
-
-  componentDidMount() {
+  // componentDidMount() {
     // this.callBackend()
     //   .then(res => this.setState({
     //     devProjects: res[0],
     //     designProjects: res[1]
     //   }))
     //   .catch(err => console.log(err))
-  }
+  // }
 
   // callBackend = async () => {
   //   const response = await fetch('/upload')
@@ -29,14 +25,12 @@ class App extends Component {
   // }
 
 
-  render(){
-    return (
-      <div className="App">
-        <Navbar />
-        <MainContainer />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Navbar />
+      <MainContainer />
+    </div>
+  );
 }
 
 export default App;
