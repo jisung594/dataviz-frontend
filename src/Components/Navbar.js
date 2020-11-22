@@ -11,6 +11,9 @@ function Navbar() {
         <Link to='/graph' className='nav-option'> GRAPH </Link>
       </div>
       <div className='grid-col-2'>
+        <h3 id="logo-placeholder">data viz</h3>
+      </div>
+      <div className='grid-col-3'>
         <Link to='/profile' className='nav-acc'> ACCOUNT </Link>
       </div>
     </div>

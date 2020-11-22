@@ -2,27 +2,52 @@ $breakpoint-iphone678: 375px;
 $breakpoint-ipad: 768px;
 $breakpoint-laptop: 1000px;
 
-.navbar {
+@mixin navbar {
   display: grid;
   background-color: gray;
 }
 
+@mixin nav-options-iphone {
+  font-size: 12px;
+  margin: 4px 6px;
+}
+
+@mixin nav-option-laptop {
+  font-size: 16px;
+  margin: 4px 6px;
+}
+
+
 
 @media (min-width: $breakpoint-iphone678) {
   .navbar {
-    grid-template-columns: 80% 20%;
-    height: 30px;
+    @include navbar;
+    grid-template-columns: 20% 60% 20%;
+
+    // .grid-col-1, .grid-col-3 {
+    //   .nav-option, .nav-acc {
+    //     font-size: 12px;
+    //     margin: 4px 6px;
+    //   }
+    // }
 
     .grid-col-1 {
       .nav-option {
-        font-size: 12px;
-        margin: 5px 10px;
+        @include nav-options-iphone;
       }
     }
 
     .grid-col-2 {
+      #logo-placeholder {
+        text-align: center;
+        margin: 4px;
+      }
+    }
+
+    .grid-col-3 {
       .nav-acc {
-        font-size: 12px;
+        @include nav-options-iphone;
+        float: right;
       }
     }
 
@@ -33,17 +58,17 @@ $breakpoint-laptop: 1000px;
 
 @media (min-width: $breakpoint-ipad) {
   .navbar {
+    @include navbar;
     grid-template-columns: 90% 10%;
-    height: 30px;
 
     .grid-col-1 {
       .nav-option {
         font-size: 14px;
-        margin: 5px 10px;
+        margin: 4px 6px;
       }
     }
 
-    .grid-col-2 {
+    .grid-col-3 {
       .nav-acc {
         font-size: 14px;
       }
@@ -56,22 +81,35 @@ $breakpoint-laptop: 1000px;
 
 @media (min-width: $breakpoint-laptop) {
   .navbar {
-    grid-template-columns: 90% 10%;
-    height: 30px;
+    @include navbar;
+    grid-template-columns: 20% 60% 20%;
+
+    // .grid-col-1, .grid-col-3 {
+    //   .nav-option, .nav-acc {
+    //     font-size: 16px;
+    //     margin: 4px 6px;
+    //   }
+    // }
 
     .grid-col-1 {
       .nav-option {
-        font-size: 16px;
-        margin: 5px 10px;
+        @include nav-option-laptop;
       }
     }
 
     .grid-col-2 {
-      .nav-acc {
-        font-size: 16px;
+      #logo-placeholder {
+        text-align: center;
+        margin: 4px;
       }
     }
 
+    .grid-col-3 {
+      .nav-acc {
+        @include nav-option-laptop;
+        float: right;
+      }
+    }
 
   }
 }

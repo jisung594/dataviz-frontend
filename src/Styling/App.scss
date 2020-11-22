@@ -1,3 +1,10 @@
-.App {
+$breakpoint-iphone678: 375px;
+$breakpoint-ipad: 768px;
+$breakpoint-laptop: 1000px;
 
+@media (min-width: $breakpoint-iphone678) {
+  .App {
+    display: grid;
+    grid-template-rows: 30px auto;
+  }
 }
