@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-const Form = (props) => {
-
+function Form() {
   const [formInput, setInput] = useState({});
 
   const uploadToS3 = (obj,e) => {
@@ -14,22 +13,15 @@ const Form = (props) => {
 
     fetch('http://127.0.0.1:5000/upload', {
       method: "POST",
-      // headers: { 'Content-Type': 'multipart/form-data' },
-      // body: obj
       body: formData
     })
       .then(res => {
-        console.log(res.status)
+        if (res.status === 200) {
+          alert("File successfully uploaded.")
+        }
       })
       .catch(console.error)
   }
-
-
-  // package.json =>
-  // (scripts) "start-api": "venv/bin/python -m flask run --no-debugger",
-
-  // "proxy": "http://127.0.0.1:5000/",
-  // "secure": false
 
 
   return (
@@ -39,12 +31,6 @@ const Form = (props) => {
         encType="multipart/form-data"
         onSubmit={(event) => uploadToS3(formInput,event)}
       >
-      {/* onSubmit={(event) => uploadToS3(formInput,event)} */}
-      {/* action="http://localhost:5000/upload" */}
-      {/* action="http://127.0.0.1:5000/upload" */}
-      {/* encType="multipart/form-data" */}
-      {/* encType="application/x-www-form-urlencoded" */}
-
         <input
           type="text"
           name="bucketDir"

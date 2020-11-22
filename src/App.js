@@ -1,35 +1,32 @@
-import React from 'react';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
-import MainContainer from './Components/MainContainer'
-import './Styling/App.scss';
+import Home from './Components/Home'
+import Form from './Components/Form'
+import Graph from './Components/Graph'
+import Profile from './Components/Profile'
+import './Styling/App.scss'
 
 function App() {
 
-  // componentDidMount() {
-    // this.callBackend()
-    //   .then(res => this.setState({
-    //     devProjects: res[0],
-    //     designProjects: res[1]
-    //   }))
-    //   .catch(err => console.log(err))
-  // }
-
-  // callBackend = async () => {
-  //   const response = await fetch('/upload')
-  //   const body = await response.json()
-  //
-  //   if (response.status !== 200) {
-  //     throw Error(body.message)
-  //   }
-  //   return body
-  // }
-
-
   return (
-    <div className="App">
-      <Navbar />
-      <MainContainer />
-    </div>
+    <BrowserRouter>
+
+        <div className="App">
+          <Navbar />
+          <div className="main-container">
+            <Switch>
+              <Route component={Home} path="/" exact/>
+              <Route component={Form} path="/form" />
+              <Route component={Graph} path="/graph" />
+              <Route component={Profile} path="/profile" />
+            </Switch>
+          </div>
+
+
+        </div>
+
+    </BrowserRouter>
   );
 }
 

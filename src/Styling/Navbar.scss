@@ -1,0 +1,77 @@
+$breakpoint-iphone678: 375px;
+$breakpoint-ipad: 768px;
+$breakpoint-laptop: 1000px;
+
+.navbar {
+  display: grid;
+  background-color: gray;
+}
+
+
+@media (min-width: $breakpoint-iphone678) {
+  .navbar {
+    grid-template-columns: 80% 20%;
+    height: 30px;
+
+    .grid-col-1 {
+      .nav-option {
+        font-size: 12px;
+        margin: 5px 10px;
+      }
+    }
+
+    .grid-col-2 {
+      .nav-acc {
+        font-size: 12px;
+      }
+    }
+
+
+  }
+}
+
+
+@media (min-width: $breakpoint-ipad) {
+  .navbar {
+    grid-template-columns: 90% 10%;
+    height: 30px;
+
+    .grid-col-1 {
+      .nav-option {
+        font-size: 14px;
+        margin: 5px 10px;
+      }
+    }
+
+    .grid-col-2 {
+      .nav-acc {
+        font-size: 14px;
+      }
+    }
+
+
+  }
+}
+
+
+@media (min-width: $breakpoint-laptop) {
+  .navbar {
+    grid-template-columns: 90% 10%;
+    height: 30px;
+
+    .grid-col-1 {
+      .nav-option {
+        font-size: 16px;
+        margin: 5px 10px;
+      }
+    }
+
+    .grid-col-2 {
+      .nav-acc {
+        font-size: 16px;
+      }
+    }
+
+
+  }
+}
