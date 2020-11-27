@@ -2,9 +2,13 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Home from './Components/Home'
-import Form from './Components/Form'
+import Upload from './Components/Upload'
 import Graph from './Components/Graph'
 import Profile from './Components/Profile'
+
+import Login from './Components/Login'
+import Register from './Components/Register'
+
 import './Styling/App.scss'
 
 function App() {
@@ -17,9 +21,11 @@ function App() {
           <div className="main-container">
             <Switch>
               <Route component={Home} path="/" exact/>
-              <Route component={Form} path="/form" />
+              <Route component={Upload} path="/upload" />
               <Route component={Graph} path="/graph" />
               <Route component={Profile} path="/profile" />
+              <Route component={Login} path="/login" />
+              <Route component={Register} path="/register" />
             </Switch>
           </div>
 

@@ -18,22 +18,29 @@ $breakpoint-laptop: 1000px;
 }
 
 
-
-@media (min-width: $breakpoint-iphone678) {
+// **********************
+// currently, menu icon is disappearing
+// in desktop mode as well, because
+// below is applying MIN-WIDTH instead of MAX
+// **********************
+@media (max-width: $breakpoint-iphone678) {
   .navbar {
     @include navbar;
     grid-template-columns: 20% 60% 20%;
 
-    // .grid-col-1, .grid-col-3 {
-    //   .nav-option, .nav-acc {
-    //     font-size: 12px;
-    //     margin: 4px 6px;
-    //   }
-    // }
-
     .grid-col-1 {
       .nav-option {
-        @include nav-options-iphone;
+        display: none;
+        // @include nav-options-iphone;
+      }
+
+      #menu-icon {
+        width: 20px;
+        height: auto;
+        // float: left;
+        // display: block;
+        margin: 6px;
+
       }
     }
 
@@ -56,27 +63,27 @@ $breakpoint-laptop: 1000px;
 }
 
 
-@media (min-width: $breakpoint-ipad) {
-  .navbar {
-    @include navbar;
-    grid-template-columns: 90% 10%;
-
-    .grid-col-1 {
-      .nav-option {
-        font-size: 14px;
-        margin: 4px 6px;
-      }
-    }
-
-    .grid-col-3 {
-      .nav-acc {
-        font-size: 14px;
-      }
-    }
-
-
-  }
-}
+// @media (min-width: $breakpoint-ipad) {
+//   .navbar {
+//     @include navbar;
+//     grid-template-columns: 90% 10%;
+//
+//     .grid-col-1 {
+//       .nav-option {
+//         font-size: 14px;
+//         margin: 4px 6px;
+//       }
+//     }
+//
+//     .grid-col-3 {
+//       .nav-acc {
+//         font-size: 14px;
+//       }
+//     }
+//
+//
+//   }
+// }
 
 
 @media (min-width: $breakpoint-laptop) {
@@ -84,16 +91,13 @@ $breakpoint-laptop: 1000px;
     @include navbar;
     grid-template-columns: 20% 60% 20%;
 
-    // .grid-col-1, .grid-col-3 {
-    //   .nav-option, .nav-acc {
-    //     font-size: 16px;
-    //     margin: 4px 6px;
-    //   }
-    // }
-
     .grid-col-1 {
       .nav-option {
         @include nav-option-laptop;
+      }
+
+      #menu-icon {
+        display: none;
       }
     }
 
