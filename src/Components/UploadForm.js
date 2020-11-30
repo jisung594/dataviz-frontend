@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Upload = () => {
+const UploadForm = () => {
   const [formInput, setInput] = useState({});
 
   const uploadToS3 = (obj,e) => {
@@ -70,4 +70,4 @@ const Upload = () => {
   )
 }
 
-export default Upload;
+export default UploadForm;

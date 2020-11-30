@@ -10,8 +10,13 @@ const Navbar = () => {
         <img src={menu} id='menu-icon' alt='menu icon'/>
 
         <Link to='/' className='nav-option'> HOME </Link>
+        <Link to='/upload' className='nav-option'> CREATE </Link>
+
+        {/*
         <Link to='/upload' className='nav-option'> UPLOAD </Link>
         <Link to='/graph' className='nav-option'> GRAPH </Link>
+        */}
+
       </div>
       <div className='grid-col-2'>
         <h3 id="logo-placeholder">data viz</h3>

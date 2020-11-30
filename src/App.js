@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Home from './Components/Home'
-import Upload from './Components/Upload'
-import Graph from './Components/Graph'
+import UploadForm from './Components/UploadForm'
+import GraphForm from './Components/GraphForm'
 import Profile from './Components/Profile'
 
 import Login from './Components/Login'
@@ -21,8 +21,8 @@ function App() {
           <div className="main-container">
             <Switch>
               <Route component={Home} path="/" exact/>
-              <Route component={Upload} path="/upload" />
-              <Route component={Graph} path="/graph" />
+              <Route component={UploadForm} path="/upload" />
+              <Route component={GraphForm} path="/graph" />
               <Route component={Profile} path="/profile" />
               <Route component={Login} path="/login" />
               <Route component={Register} path="/register" />
