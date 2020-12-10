@@ -3,15 +3,6 @@ import React, { useState } from 'react'
 const GraphForm = (props) => {
     const [formInput, setInput] = useState({});
 
-    // let list_objs = (e) => {
-    //   e.preventDefault()
-    //
-    //   fetch('http://127.0.0.1:5000/list_objs')
-    //     .then(res => res.text())
-    //     .then(body => {
-    //       console.log(body)
-    //     })
-    // }
 
     let read_csv = (e) => {
       e.preventDefault()
