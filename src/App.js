@@ -16,16 +16,16 @@ function App() {
   return (
     <BrowserRouter>
 
-        <div className="App">
+        <div className='App'>
           <Navbar />
-          <div className="main-container">
+          <div className='main-container'>
             <Switch>
-              <Route component={Home} path="/" exact/>
-              <Route component={UploadForm} path="/upload" />
-              <Route component={GraphForm} path="/graph" />
-              <Route component={Profile} path="/profile" />
-              <Route component={Login} path="/login" />
-              <Route component={Register} path="/register" />
+              <Route component={Home} path='/' exact/>
+              <Route component={UploadForm} path='/upload'/>
+              <Route component={GraphForm} path='/graph'/>
+              <Route component={Profile} path='/profile/:id'/>
+              <Route component={Login} path='/login'/>
+              <Route component={Register} path='/register'/>
             </Switch>
           </div>
 

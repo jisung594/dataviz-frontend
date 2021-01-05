@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 const Register = () => {
   const [formInput, setInput] = useState({});
+  const [registeredState, setState] = useState({'state':false, 'id':0})
 
   let registerUser = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
 
     if (formInput['password'] !== formInput['password_conf']) {
-      e.preventDefault()
       alert('Please confirm password correctly.')
     } else {
       let formData = new FormData();
@@ -21,15 +22,24 @@ const Register = () => {
         method: 'POST',
         body: formData
       })
-        .then(res => {
-          if (res.status === 200) {
+        .then(res => res.json())
+        .then(data => {
+          if (data['status'] === 'new') {
+            setState({'state': !registeredState.state, 'id':data['id']})
             alert(`${formInput['username']} is successfully registered`)
+          } else {
+            alert(`${formInput['username']} is already registered`)
           }
+
         })
         .catch(console.error)
     }
-
   }
+
+  if (registeredState.state) {
+    return <Redirect to={`/profile/${registeredState['id']}`}/>
+  }
+  
 
   return (
     <div className='form'>
