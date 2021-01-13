@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom'
 import '../Styling/Navbar.scss'
 import menu from '../Assets/menu-icon.png'
 
+
 const Navbar = () => {
+
+  let logOutHandler = () => {
+    localStorage.clear()
+  }
+
   return (
     <div className='navbar'>
       <div className='grid-col-1'>
@@ -24,13 +30,16 @@ const Navbar = () => {
       <div className='grid-col-3'>
         <Link to='/profile' className='nav-acc'> ACCOUNT </Link>
 
-        {/*
-          upon clicking ACCOUNT button -->
-          if user is not logged in already (backend),
-          display Login form w/ Register option below
-        */}
-        <Link to='/login' className='nav-acc'> Login </Link>
-        <Link to='/register' className='nav-acc'> Register </Link>
+        {
+          !!localStorage.getItem('user')
+          ? <Link to='/' className='nav-acc' onClick={logOutHandler()}> Logout </Link>
+          : <div>
+            <Link to='/login' className='nav-acc'> Login </Link>
+            <Link to='/register' className='nav-acc'> Register </Link>
+          </div>
+        }
+
+
       </div>
     </div>
   )

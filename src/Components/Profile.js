@@ -4,7 +4,6 @@ const Profile = () => {
   const [s3Files, setFiles] = useState([]);
 
   useEffect(()=>{
-
     fetch('http://127.0.0.1:5000/list_files')
       .then(res => res.json())
       .then(files => {
