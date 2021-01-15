@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*** WORK IN PROGRESS ***
+
+dataviz - a platform for users to create customizable Plotly graphs by inputting CSV data and setting X/Y axes
+
+
 
 ## Available Scripts
 
