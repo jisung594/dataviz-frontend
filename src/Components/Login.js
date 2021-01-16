@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import '../Styling/Form.scss'
 
 const Login = () => {
   const [formInput, setInput] = useState({});
+  const [loggedInUser, setUser] = useState({})
 
   let loginUser = (e) => {
     e.preventDefault()
@@ -15,12 +17,23 @@ const Login = () => {
       method: "POST",
       body: formData
     })
-      .then(res => res.json)
+      .then(res => res.json())
       .then(data => {
         // localStorage.setItem('token', data.jwt)
-        // localStorage.setItem('user', data)
-        console.log(data)
+        // localStorage.setItem('user', data['user'])
+
+        if (data['user']) {
+          localStorage.setItem('user', JSON.stringify(data['user']))
+          setUser(data['user'])
+        } else {
+          alert(data['error'])
+        }
       })
+  }
+
+  if (loggedInUser['id']) {
+    // localStorage.setItem('user', JSON.stringify(loggedInUser))
+    return <Redirect to={`/profile/${loggedInUser['id']}`}/>
   }
 
 
