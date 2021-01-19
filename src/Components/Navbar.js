@@ -7,18 +7,19 @@ import menu from '../Assets/menu-icon.png'
 const Navbar = () => {
   const [loggedInStatus, setStatus] = useState(false);
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/login')
-      .then(res => res.json())
-      .then(obj => {
-        console.log(obj['user_id'])
-        // set logged in user's id in STATE
-
-        if (!!obj['user_id']) {
-          setStatus(true)
-        }
-      })
-  },[])
+  // useEffect(() => {
+  //   fetch('http://127.0.0.1:5000/login')
+  //   // fetch('http://127.0.0.1:5000/check_login')
+  //     .then(res => res.json())
+  //     .then(obj => {
+  //       console.log(obj['user_id'])
+  //       // set logged in user's id in STATE
+  //
+  //       // if (obj['user_id'] != null) {
+  //       //   setStatus(true)
+  //       // }
+  //     })
+  // },[])
 
 
   let logOutHandler = () => {
@@ -35,7 +36,7 @@ const Navbar = () => {
     localStorage.clear()
   }
 
-  console.log(loggedInStatus)
+  // console.log(loggedInStatus)
 
 
   return (
